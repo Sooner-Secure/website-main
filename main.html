@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sooner Secure - Protecting Oklahoma's Digital Landscape</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            background-color: #1a0f0f;
+            color: #ffebee;
+            font-family: Arial, sans-serif;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: radial-gradient(circle at top, #2a1a1a 0%, #1a0f0f 55%, #0f0808 100%);
+        }
+        header {
+            background: linear-gradient(135deg, #841617, #5a0f11);
+            color: #ffebee;
+            padding: 1.2rem 1rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            letter-spacing: 0.04em;
+        }
+        header p {
+            margin: 0.5rem 0 0;
+            color: #ffcdd2;
+        }
+        .container {
+            display: flex;
+            flex: 1;
+            gap: 1rem;
+            padding: 1rem;
+        }
+        sidebar {
+            width: 250px;
+            background: #2a1a1a;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 1rem;
+            color: #ffebee;
+        }
+        sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        sidebar li + li {
+            margin-top: 0.75rem;
+        }
+        sidebar a {
+            color: #ffab91;
+            text-decoration: none;
+            display: block;
+            padding: 0.45rem 0.25rem;
+            border-radius: 6px;
+        }
+        sidebar a:hover {
+            background: rgba(255, 171, 145, 0.12);
+        }
+        .content-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .mission-box,
+        main,
+        .overlay-content {
+            background: rgba(26, 15, 15, 0.95);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 28px 80px rgba(0, 0, 0, 0.25);
+        }
+        .mission-box {
+            border-color: rgba(255, 171, 145, 0.3);
+            background: rgba(23, 18, 18, 0.98);
+        }
+        .mission-box h2 {
+            margin-top: 0;
+            color: #ffab91;
+            font-size: 1.5rem;
+        }
+        .mission-box p {
+            margin: 1rem 0 0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        .notice {
+            background: #2a1a1a;
+            border: 1px solid #841617;
+            color: #ffebee;
+            padding: 1rem 1.2rem;
+            border-radius: 12px;
+            margin: 1.2rem 0;
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+        footer {
+            background: linear-gradient(135deg, #0f0808, #2a1a1a);
+            color: #ffcdd2;
+            text-align: center;
+            padding: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        footer p {
+            margin: 0.35rem 0;
+            font-size: 0.95rem;
+        }
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 8, 8, 0.85);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            z-index: 100;
+        }
+        .overlay.active {
+            display: flex;
+        }
+        .overlay-panel {
+            width: min(920px, 100%);
+            max-height: 90vh;
+            overflow-y: auto;
+            background: rgba(26, 15, 15, 0.98);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 18px;
+            box-shadow: 0 40px 120px rgba(0, 0, 0, 0.5);
+        }
+        .overlay-panel header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem 0;
+        }
+        .overlay-panel header h3 {
+            margin: 0;
+            color: #ffab91;
+        }
+        .overlay-panel header button {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.18);
+            color: #ffebee;
+            padding: 0.6rem 0.9rem;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .overlay-panel header button:hover {
+            background: rgba(255,255,255,0.08);
+        }
+        .overlay-content {
+            padding: 1rem 2rem 2rem;
+            margin-top: 0;
+        }
+        .overlay-content h4 {
+            margin-top: 0;
+            color: #ffab91;
+        }
+        .overlay-content ul {
+            padding-left: 1.2rem;
+        }
+        .overlay-content li {
+            margin: 0.75rem 0;
+            line-height: 1.7;
+        }
+        .overlay-content p {
+            margin: 1rem 0;
+            line-height: 1.7;
+        }
+        @media (max-width: 860px) {
+            .container {
+                flex-direction: column;
+            }
+            sidebar {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sooner Secure</h1>
+        <p>Protecting Oklahoma's digital infrastructure with ethical scanning and support.</p>
+    </header>
+    <div class="container">
+        <sidebar>
+            <ul>
+                <li><a href="mailto:patrick@soonersecure.org">Contact Us</a></li>
+                <li><a href="https://eff.org/donate" target="_blank" rel="noopener noreferrer">EFF Donation Page</a></li>
+                <li><a href="#how-we-work" id="howWeWorkLink">How We Work</a></li>
+            </ul>
+        </sidebar>
+        <div class="content-area">
+            <section class="mission-box">
+                <h2>Mission Statement</h2>
+                <p><strong>Make Oklahoma's technology safer.</strong> We scan for vulnerable devices, share findings with organizations, and help provide advice or technical assistance to improve security.</p>
+            </section>
+            <main>
+                <h2>Welcome to Sooner Secure</h2>
+                <p>Sooner Secure is an Oklahoma-based group that scans the internet to find vulnerable devices and notify organizations before threats can be exploited.</p>
+                <div class="notice">
+                    We do not charge for these services. Our outreach, guidance, and technical assistance are provided at no cost.
+                </div>
+                <p>We reach out to companies and institutions across Oklahoma with notice, advice, and technical support when needed. Our goal is to improve cybersecurity for local businesses, nonprofits, and public institutions.</p>
+                <p>Working together, we help make Oklahoma’s digital landscape safer, more resilient, and better protected against cyber risks.</p>
+                                <div class="notice">
+                    We do not access, interact with, or manipulate exposed systems we find online. Any information we collect is publically available, unless shared with us by the owner of the system. We operate in line with local and federal laws. We do not share information about systems to any party besides the operator of the systems.
+                </div>
+            </main>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2026 Sooner Secure</p>
+        <p>Serving Oklahoma with free cybersecurity support and outreach</p>
+        <p>Email: info@soonersecure.org | Oklahoma City, OK</p>
+    </footer>
+
+    <div class="overlay" id="howWeWorkOverlay" aria-hidden="true">
+        <div class="overlay-panel">
+            <header>
+                <h3>How We Work</h3>
+                <button id="closeOverlay">Close</button>
+            </header>
+            <div class="overlay-content">
+                <p>Sooner Secure is in the process of aquiring formal nonprofit status. We do not take payment for assistance provided.</p>
+                <h4>What we do</h4>
+                <ul>
+                    <li>Scan the public internet for exposed or vulnerable devices that may pose a risk.</li>
+                    <li>Identify affected organizations and verify the findings with care.</li>
+                    <li>Reach out with clear notice, recommended security steps, and resources.</li>
+                </ul>
+                <h4>How we help</h4>
+                <ul>
+                    <li>Provide free advice for fixing common exposure issues.</li>
+                    <li>Offer technical assistance when organizations need hands-on support.</li>
+                    <li>Prioritize respectful communication and responsible disclosure.</li>
+                </ul>
+                <h4>Why it matters</h4>
+                <p>By sharing guidance and support at no charge, we reduce risk across Oklahoma’s technology landscape and help organizations stay safer against cyber threats.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const howWeWorkLink = document.getElementById('howWeWorkLink');
+        const overlay = document.getElementById('howWeWorkOverlay');
+        const closeOverlay = document.getElementById('closeOverlay');
+
+        howWeWorkLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            overlay.classList.add('active');
+            overlay.setAttribute('aria-hidden', 'false');
+        });
+
+        closeOverlay.addEventListener('click', function() {
+            overlay.classList.remove('active');
+            overlay.setAttribute('aria-hidden', 'true');
+        });
+
+        overlay.addEventListener('click', function(event) {
+            if (event.target === overlay) {
+                overlay.classList.remove('active');
+                overlay.setAttribute('aria-hidden', 'true');
+            }
+        });
+    </script>
+</body>
+</html>
