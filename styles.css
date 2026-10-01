@@ -23,7 +23,8 @@ img { display: block; max-width: 100%; }
 .site-header.scrolled { position: fixed; height: 68px; background: rgba(75,11,18,.96); backdrop-filter: blur(14px); }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-size: 20px; letter-spacing: -.04em; }
 .brand strong { font-weight: 700; }
-.brand-mark { width: 29px; height: 29px; color: var(--orange); }
+.brand-logo-frame { width: 48px; height: 44px; padding: 3px; display: grid; place-items: center; flex: 0 0 auto; border-radius: 6px; background: linear-gradient(135deg, #ffc44d 0%, #e0a800 35%, #e74d4f 68%, #841617 100%); box-shadow: 0 2px 12px rgba(20,8,6,.28); }
+.brand-logo-image { display: block; width: 100%; height: 100%; object-fit: contain; background: white; }
 .site-nav { display: flex; align-items: center; gap: clamp(22px, 3vw, 46px); font-size: 14px; font-weight: 600; }
 .site-nav a { text-decoration: none; }
 .site-nav > a:not(.nav-cta) { position: relative; }
@@ -270,7 +271,6 @@ body::before {
 
 .site-header.scrolled { height: 76px; background: linear-gradient(rgba(38,15,12,.3), rgba(38,15,12,.3)), var(--leather) center / cover; }
 .brand { text-transform: uppercase; letter-spacing: .08em; text-shadow: 0 2px 2px #1e0e0c; }
-.brand-mark { color: var(--gold); filter: drop-shadow(0 2px 1px #21100d); }
 .site-nav { font-family: ui-monospace, "Courier New", monospace; text-transform: uppercase; letter-spacing: .09em; font-size: 11px; }
 .nav-cta, .button { border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(255,255,255,.2), 0 3px 0 rgba(42,20,15,.45); }
 
@@ -335,8 +335,23 @@ body::before {
 .button-light { color: #442018; background: #e8d6af; }
 footer { border-top: 1px solid #b68f55; }
 
-.consent-banner { background-image: linear-gradient(rgba(45,18,15,.1),rgba(45,18,15,.1)), var(--leather); background-size: cover; border: 2px solid #b18b50; outline: 1px dashed #dfc795; outline-offset: -9px; }
-.consent-dialog { border: 8px solid #5b261f; outline: 2px dashed #d0aa68; outline-offset: -6px; }
+.consent-banner { background-image: none; background-color: #301713; border: 1px solid #b18b50; outline: 0; }
+.consent-dialog { border: 1px solid #b18b50; outline: 0; }
+.incorporation-dialog { width: min(560px, calc(100% - 32px)); padding: 0; border: 1px solid #b18b50; color: var(--ink); background: var(--paper); box-shadow: 0 24px 90px rgba(31,5,9,.45); }
+.incorporation-dialog[open] { animation: announcement-enter .28s ease-out; }
+.incorporation-dialog::backdrop { background: rgba(27,5,8,.76); backdrop-filter: blur(4px); }
+.incorporation-content { position: relative; padding: 48px; text-align: center; }
+.incorporation-content::before { content: ""; position: absolute; inset: 10px; border: 1px solid rgba(177,139,80,.35); pointer-events: none; }
+.incorporation-close { position: absolute; top: 20px; right: 20px; z-index: 1; }
+.incorporation-kicker { margin: 0 0 20px; color: #7d2d28; font: 700 10px/1.4 ui-monospace, "Courier New", monospace; letter-spacing: .14em; text-transform: uppercase; }
+.incorporation-seal { width: 62px; height: 62px; margin: 0 auto 20px; display: grid; place-items: center; border: 1px solid #b18b50; border-radius: 50%; background: #e8dcc2; }
+.incorporation-seal svg { width: 34px; height: 34px; }
+.incorporation-seal svg path:first-child { fill: #6f2023; }
+.incorporation-seal svg path:last-child { fill: none; stroke: #f4ecd9; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.incorporation-dialog h2 { max-width: 420px; margin: 0 auto 16px; color: #3b2720; font-size: 44px; line-height: 1.02; }
+.incorporation-dialog #incorporation-description { max-width: 410px; margin: 0 auto 25px; color: #66534a; font-size: 14px; line-height: 1.7; }
+.incorporation-acknowledge { border: 0; font-family: inherit; cursor: pointer; }
+@keyframes announcement-enter { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: none; } }
 .legal-main { background: rgba(255,251,238,.28); }
 
 @media (max-width: 900px) {
@@ -352,4 +367,6 @@ footer { border-top: 1px solid #b68f55; }
   .focus-grid { gap: 18px; }
   .focus-card, .focus-card:not(:first-child) { padding: 38px 30px; }
   .connect-inner { padding: 38px 20px; }
+  .incorporation-content { padding: 48px 28px 34px; }
+  .incorporation-dialog h2 { font-size: 36px; }
 }

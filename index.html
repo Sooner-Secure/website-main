@@ -14,10 +14,7 @@
 
     <header class="site-header" data-header>
       <a class="brand" href="#top" aria-label="Sooner Secure home">
-        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
-          <path d="M20 3 34 10.8v11.4C34 30.3 27.9 35.4 20 38c-7.9-2.6-14-7.7-14-15.8V10.8L20 3Z" fill="currentColor"/>
-          <path d="m12.5 21 4.7 4.7 10.6-11" fill="none" stroke="#f7f3e8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <span class="brand-logo-frame" aria-hidden="true"><img class="brand-logo-image" src="sooner-secure-logo.jpg" alt="" /></span>
         <span>Sooner <strong>Secure</strong></span>
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
@@ -122,9 +119,22 @@
       </section>
     </main>
 
+    <dialog class="incorporation-dialog" data-incorporation-dialog aria-labelledby="incorporation-title" aria-describedby="incorporation-description">
+      <div class="incorporation-content">
+        <button class="dialog-close incorporation-close" type="button" data-incorporation-close aria-label="Close announcement">×</button>
+        <p class="incorporation-kicker">A milestone for Sooner Secure</p>
+        <div class="incorporation-seal" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><path d="M20 3 34 10.8v11.4C34 30.3 27.9 35.4 20 38c-7.9-2.6-14-7.7-14-15.8V10.8L20 3Z"/><path d="m12.5 21 4.7 4.7 10.6-11"/></svg>
+        </div>
+        <h2 id="incorporation-title">We’re officially incorporated.</h2>
+        <p id="incorporation-description">Sooner Secure has received its Certificate of Incorporation from the State of Oklahoma. We’re proud to take this next step in building a more secure and resilient future together.</p>
+        <button class="button button-primary incorporation-acknowledge" type="button" data-incorporation-close>Celebrate with us <span aria-hidden="true">→</span></button>
+      </div>
+    </dialog>
+
     <footer>
       <a class="brand footer-brand" href="#top">
-        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 34 10.8v11.4C34 30.3 27.9 35.4 20 38c-7.9-2.6-14-7.7-14-15.8V10.8L20 3Z" fill="currentColor"/><path d="m12.5 21 4.7 4.7 10.6-11" fill="none" stroke="#f7f3e8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="brand-logo-frame" aria-hidden="true"><img class="brand-logo-image" src="sooner-secure-logo.jpg" alt="" /></span>
         <span>Sooner <strong>Secure</strong></span>
       </a>
       <p>A nonprofit working toward security and resilience for all.</p>

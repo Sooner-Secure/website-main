@@ -39,6 +39,24 @@ document.querySelectorAll('[data-year]').forEach((element) => {
   element.textContent = new Date().getFullYear();
 });
 
+const incorporationDialog = document.querySelector('[data-incorporation-dialog]');
+const incorporationSessionKey = 'sooner-secure-incorporation-announcement-seen';
+
+if (incorporationDialog) {
+  try {
+    if (!sessionStorage.getItem(incorporationSessionKey)) {
+      incorporationDialog.showModal();
+      sessionStorage.setItem(incorporationSessionKey, 'true');
+    }
+  } catch {
+    incorporationDialog.showModal();
+  }
+
+  incorporationDialog.querySelectorAll('[data-incorporation-close]').forEach((button) => {
+    button.addEventListener('click', () => incorporationDialog.close());
+  });
+}
+
 if (!document.querySelector('[data-consent-dialog]')) {
   document.body.insertAdjacentHTML('beforeend', `
     <section class="consent-banner" data-consent-banner aria-labelledby="consent-title" aria-describedby="consent-description" hidden>
